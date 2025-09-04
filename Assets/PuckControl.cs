@@ -10,11 +10,11 @@ public class PuckControl : MonoBehaviour
         float rand = Random.Range(0, 2);
         if(rand < 1)
         {
-            rb2d.AddForce(new Vector2(20, -15));
+            rb2d.AddForce(new Vector2(15, 20));
         }
         else
         {
-            rb2d.AddForce(new Vector2(-20, -15));
+            rb2d.AddForce(new Vector2(-15, -20));
         }
     }
 
@@ -23,17 +23,6 @@ public class PuckControl : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         Invoke("GoPuck", 2);
-    }
-
-    void OnCollissionEnter2D(Collision2D coll)
-    {
-        if(coll.collider.CompareTag("Player"))
-        {
-            Vector2 vel;
-            vel.y = rb2d.linearVelocity.y;
-            vel.x = (rb2d.linearVelocity.x / 2) + (coll.collider.attachedRigidbody.linearVelocity.x / 3);
-            rb2d.linearVelocity = vel;
-        }
     }
 
     void ResetPuck()
