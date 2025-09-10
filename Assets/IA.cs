@@ -43,7 +43,7 @@ public class IA : MonoBehaviour
         }
 
         // Se passar do limite no eixo Y...
-        if (pos.y > boundY || pos.y < -boundY)
+        if (pos.y > boundY || pos.y < 0)
         {
             // Inverte a direção no eixo Y
             direction.y *= -1;

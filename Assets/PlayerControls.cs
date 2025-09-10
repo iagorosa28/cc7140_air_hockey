@@ -31,7 +31,7 @@ public class PlayerControls : MonoBehaviour
         if (pos.x > boundX) pos.x = boundX;
         else if (pos.x < -boundX) pos.x = -boundX;
 
-        if (pos.y > boundY) pos.y = boundY;
+        if (pos.y > 0) pos.y = 0;
         else if (pos.y < -boundY) pos.y = -boundY;
 
         // Aplica a posição calculada

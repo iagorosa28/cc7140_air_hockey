@@ -4,6 +4,7 @@ public class PuckControl : MonoBehaviour
 {
 
     private Rigidbody2D rb2d;
+    public AudioSource source;
 
     void GoPuck()
     {
@@ -23,6 +24,7 @@ public class PuckControl : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         Invoke("GoPuck", 2);
+        source = GetComponent<AudioSource>();
     }
 
     void ResetPuck()
@@ -35,5 +37,10 @@ public class PuckControl : MonoBehaviour
     {
         ResetPuck();
         Invoke("GoPuck", 1);
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        source.Play();
     }
 }
